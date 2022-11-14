@@ -6,6 +6,7 @@ public class pedirPosicion {
             pos.toUpperCase();
             while (!posBarco(pos) || !syntBarcos(pos)) {
                 System.out.println("Debes introducir dos carácteres [a1]");
+                System.out.println();
                 pos = Tools.getString("Introduzca de nuevo la posición del " + i + " barco: ");
             }
         }
@@ -21,16 +22,43 @@ public class pedirPosicion {
     }
 
     public static boolean syntBarcos(String pos) {
-        boolean opt = false;
+        if (!primLetra(pos) && !segLetra(pos)) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    private static boolean primLetra(String pos) {
+        boolean primeraLetra;
         char letter = 'A';
         do {
-            if (pos.toUpperCase().charAt(0) != letter && pos.charAt(1) > 9) {
-                opt = false;
+            if (pos.toUpperCase().charAt(0) != letter) {
+                primeraLetra = false;
                 letter += 1;
             } else {
-                opt = true;
+                primeraLetra = true;
             }
-        } while (!opt && letter != 'J');
-        return opt;
+        } while (!primeraLetra && letter != 'J');
+
+        return primeraLetra;
+    }
+
+    private static boolean segLetra(String pos) {
+        boolean segundaLetra;
+        String
+        int num = 0;
+        do {
+            if (String.valueOf(pos.charAt(1))) != num) {
+                segundaLetra = false;
+                num++;
+            } else {
+                segundaLetra = true;
+            }
+        } while (!segundaLetra && num != 10);
+        return segundaLetra;
     }
 }
+
+
+//Para saber la posicion de el primer carácter debes restarlo por 'A'(char) y para convertir el segundo carácter en un INT debes restarlo por 0
