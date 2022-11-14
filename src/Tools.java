@@ -32,10 +32,9 @@ public class Tools {
     }
 
     public static char recorrerAZ() {
-        char letter = ' ';
-        for (int i = 65; i <= 90; i++){
-            letter = (char) i;
-            return letter;
+        char letter = 'A';
+        for (int i = 0; i < 26; i++) {
+            letter += 1;
         }
         return letter;
     }
