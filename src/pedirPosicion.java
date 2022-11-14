@@ -46,10 +46,10 @@ public class pedirPosicion {
 
     private static boolean segLetra(String pos) {
         boolean segundaLetra;
-        String
+        int secondNum;
         int num = 0;
         do {
-            if (String.valueOf(pos.charAt(1))) != num) {
+            if (Integer.parseInt(String.valueOf(pos.charAt(1))) != num) {
                 segundaLetra = false;
                 num++;
             } else {
