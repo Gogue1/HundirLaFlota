@@ -4,7 +4,7 @@ public class pedirPosicion {
         for (int i = 1; i <= 5; i++) {
             pos = Tools.getString("Introduzca la posición del " + i + " barco: ");
             pos.toUpperCase();
-            while (!posBarco(pos) || !syntBarcos(pos)) {
+            while (!posBarco(pos) && syntBarcos(pos)) {
                 System.out.println("Debes introducir dos carácteres [a1]");
                 System.out.println();
                 pos = Tools.getString("Introduzca de nuevo la posición del " + i + " barco: ");
@@ -46,17 +46,12 @@ public class pedirPosicion {
 
     private static boolean segLetra(String pos) {
         boolean segundaLetra;
-        int secondNum;
-        int num = 0;
-        do {
-            if (Integer.parseInt(String.valueOf(pos.charAt(1))) != num) {
-                segundaLetra = false;
-                num++;
-            } else {
-                segundaLetra = true;
-            }
-        } while (!segundaLetra && num != 10);
-        return segundaLetra;
+        int num = Integer.parseInt(String.valueOf(pos.charAt(1)));
+        if (num < 0 && num > 9) {
+            return false;
+        } else {
+            return true;
+        }
     }
 }
 
